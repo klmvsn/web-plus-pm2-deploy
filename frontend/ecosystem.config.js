@@ -9,10 +9,9 @@ const {
 module.exports = {
   apps: [{
     name: 'frontend',
-    script: './dist/app.js',
+    script: './build/index.html',
   }],
 
-  // Настройка деплоя
   deploy: {
     production: {
       user: DEPLOY_USER,
@@ -20,8 +19,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: 'https://github.com/klmvsn/web-plus-pm2-deploy',
       path: DEPLOY_PATH,
-      'pre-deploy-local': `scp ./.env ./.env.deploy ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
-      'post-deploy': 'npm i && npm run build',
+      'post-deploy': 'cd ~/mesto-frontend && npm i && npm run build',
     },
   },
 };
