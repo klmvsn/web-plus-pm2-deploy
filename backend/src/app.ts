@@ -14,15 +14,7 @@ const app = express();
 mongoose.connect(DB_ADDRESS);
 
 // Только для локальных тестов. Не используйте это в продакшене
-app.use(cors({
-  origin: ['http://mesto-klimova.students.nomoredomains.work',
-    'https://mesto-klimova.students.nomoredomains.work',
-    'http://api.mesto-klmvsn.students.nomoredomains.work',
-    'https://api.mesto-klmvsn.students.nomoredomains.work'],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
