@@ -19,6 +19,9 @@ app.use(cors({
     'https://mesto-klimova.students.nomoredomains.work',
     'http://api.mesto-klmvsn.students.nomoredomains.work',
     'https://api.mesto-klmvsn.students.nomoredomains.work'],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
